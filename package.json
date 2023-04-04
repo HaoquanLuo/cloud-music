@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8080",
-    "build": "next build",
+    "run": "concurrently pnpm:run:*",
+    "save": "concurrently pnpm:save:*",
+    "run:dev": "next dev -p 8080",
+    "save:build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "run:dev:css": "unocss -c uno.config.ts -o styles/uno.css -w pages/**",
+    "save:build:css": "unocss -c uno.config.ts -o styles/uno.css pages/**"
   },
   "dependencies": {
     "@types/node": "18.15.11",
@@ -26,6 +30,7 @@
     "@unocss/preset-uno": "^0.50.6",
     "@unocss/transformer-attributify-jsx": "^0.50.6",
     "@unocss/webpack": "^0.50.6",
+    "concurrently": "^8.0.1",
     "unocss": "^0.50.6"
   }
 }

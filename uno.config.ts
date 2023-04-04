@@ -1,4 +1,4 @@
-import { type UserConfig, defineConfig, presetMini } from 'unocss'
+import { defineConfig, presetMini } from 'unocss'
 import presetIcons from '@unocss/preset-icons'
 import presetUno from '@unocss/preset-uno'
 import presetAttributify from '@unocss/preset-attributify'

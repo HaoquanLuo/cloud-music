@@ -1,5 +1,5 @@
 import '@unocss/reset/tailwind.css'
-import 'uno.css'
+import '@/styles/uno.css'
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
