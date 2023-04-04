@@ -29,7 +29,6 @@ export default defineConfig({
       (match) => {
         switch (match[1]) {
           case 'w': {
-            console.log('match', match)
             return {
               width: '50%',
             }
