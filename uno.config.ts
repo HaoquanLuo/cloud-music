@@ -46,6 +46,12 @@ export default defineConfig({
     ],
   ],
   shortcuts: {
-    'screen-full': 'absolute w-full h-full bg-black bg-op-30 top-0 left-0 z-99',
+    full: 'w-full h-full',
+    ja: 'justify-around',
+    jc: 'justify-center',
+    je: 'justify-evenly',
+    ia: 'items-around',
+    ic: 'items-center',
+    ie: 'items-evenly',
   },
 })
