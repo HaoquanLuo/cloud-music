@@ -1,8 +1,11 @@
-import { defineConfig, presetMini } from 'unocss'
-import presetIcons from '@unocss/preset-icons'
-import presetUno from '@unocss/preset-uno'
-import presetAttributify from '@unocss/preset-attributify'
-import transformerAttributifyJsx from '@unocss/transformer-attributify-jsx'
+import {
+  defineConfig,
+  presetMini,
+  presetIcons,
+  presetUno,
+  presetAttributify,
+  presetWebFonts,
+} from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -18,8 +21,13 @@ export default defineConfig({
     }),
     presetUno(),
     presetAttributify(),
+    presetWebFonts({
+      provider: 'google',
+      fonts: {
+        sans: 'Roboto',
+      },
+    }),
   ],
-  transformers: [transformerAttributifyJsx()],
   rules: [
     [
       /**
