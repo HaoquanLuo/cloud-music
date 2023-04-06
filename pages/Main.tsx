@@ -228,7 +228,7 @@ const Main: React.FC<MainProps> = () => {
                     </div>
                   </div>
                   <div id={'song-detail'} className={'flex flex-col'}>
-                    <div id={'song-detail-addition'} className={'flex ja ic'}>
+                    <div id={'song-detail-addition'} className={'flex jb ic'}>
                       <div
                         id={'song-like'}
                         className={` ${
