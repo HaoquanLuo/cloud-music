@@ -3,7 +3,7 @@ interface MainProps {}
 const Main: React.FC<MainProps> = () => {
   return (
     <div className={'w-full h-full grid pic'}>
-      <div className={'w-80% h-90%'}>
+      <div className={'w-80% h-85%'}>
         <div
           id={'view-box'}
           className={
@@ -21,7 +21,7 @@ const Main: React.FC<MainProps> = () => {
               <div
                 id={'container-menu-middle'}
                 className={
-                  'text-[rgba(255,_255,_255,_0.7)] flex-1 flex flex-col gap-1.5 jc ic'
+                  'text-[rgba(255,_255,_255,_0.7)] flex-1 flex flex-col gap-1 jc ic'
                 }
               >
                 {[
@@ -211,7 +211,7 @@ const Main: React.FC<MainProps> = () => {
               </div>
             </div>
           </div>
-          <div id={'view-player'} className={'w-full h-23 px-14'}>
+          <div id={'view-player'} className={'w-full h-23! px-14'}>
             <div id={'player-container'} className={'w-full h-full flex'}>
               <div id={'player-left'} className={'flex-1 text-sm'}>
                 <div id={'player-song'} className={'full flex gap-3 ic'}>
