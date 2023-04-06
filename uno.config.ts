@@ -4,7 +4,6 @@ import {
   presetIcons,
   presetUno,
   presetAttributify,
-  presetWebFonts,
 } from 'unocss'
 
 export default defineConfig({
@@ -21,12 +20,6 @@ export default defineConfig({
     }),
     presetUno(),
     presetAttributify(),
-    presetWebFonts({
-      provider: 'google',
-      fonts: {
-        sans: 'Roboto',
-      },
-    }),
   ],
   rules: [
     [
@@ -56,10 +49,19 @@ export default defineConfig({
   shortcuts: {
     full: 'w-full h-full',
     ja: 'justify-around',
+    jb: 'justify-between',
     jc: 'justify-center',
     je: 'justify-evenly',
-    ia: 'items-around',
+    ca: 'content-around',
+    cb: 'content-between',
+    cc: 'content-center',
+    ce: 'content-evenly',
     ic: 'items-center',
-    ie: 'items-evenly',
+    pic: 'place-items-center',
+    active:
+      'before:content-empty before:absolute before:bg-red-600 before:rd before:bottom-1 before:w-90% before:h-1',
+    activeleft:
+      'active bg-light bg-op-20 before:left-1 before:w-1 before:h-70%',
+    activebottom: 'active before:bottom-0 before:w-full before:h-0.75',
   },
 })
