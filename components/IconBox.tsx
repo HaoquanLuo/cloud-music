@@ -1,5 +1,5 @@
 interface IconBoxProps {
-  icon: CM.Icon
+  icon: CM.Icon | string
   clickable?: boolean
   iconShape?: 'rounded' | 'square'
   iconWidth?: number
@@ -24,7 +24,7 @@ const IconBox: React.FC<IconBoxProps> = (props) => {
         clickable ? 'cursor-pointer hover:bg-light hover:bg-op-20' : ''
       }`}
     >
-      <i className={`${icon.content}`}></i>
+      <i className={`${typeof icon === 'string' ? icon : icon.content}`}></i>
     </div>
   )
 }
