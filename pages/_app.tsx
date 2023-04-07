@@ -1,5 +1,6 @@
 import '@unocss/reset/tailwind.css'
 import '@/styles/uno.css'
+import '@/styles/custom.css'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 

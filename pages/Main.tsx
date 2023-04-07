@@ -211,7 +211,7 @@ const Main: React.FC<MainProps> = () => {
               </div>
             </div>
           </div>
-          <div id={'view-player'} className={'w-full h-23! px-14'}>
+          <div id={'view-player'} className={'w-full h-24! px-14'}>
             <div id={'player-container'} className={'w-full h-full flex'}>
               <div id={'player-left'} className={'flex-1 text-sm'}>
                 <div id={'player-song'} className={'full flex gap-3 ic'}>

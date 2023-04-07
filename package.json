@@ -9,8 +9,8 @@
     "build:build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:css": "unocss -c uno.config.ts -o styles/uno.css -w pages/**/*.tsx",
-    "build:css": "unocss -c uno.config.ts -o styles/uno.css pages/**/*.tsx"
+    "dev:css": "unocss -c uno.config.ts -o styles/uno.css -w \"{pages,layouts,components}/**/*.tsx\"",
+    "build:css": "unocss -c uno.config.ts -o styles/uno.css \"{pages,layouts,components}/**/*.tsx\""
   },
   "dependencies": {
     "@types/node": "18.15.11",

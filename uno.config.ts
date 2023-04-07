@@ -58,10 +58,9 @@ export default defineConfig({
     ce: 'content-evenly',
     ic: 'items-center',
     pic: 'place-items-center',
-    active:
-      'before:content-empty before:absolute before:bg-red-600 before:rd before:bottom-1 before:w-90% before:h-1',
+    active: 'before:content-empty before:absolute before:bg-red-600 before:rd',
     activeleft:
-      'active bg-light bg-op-20 before:left-1 before:w-1 before:h-70%',
+      'active bg-light bg-op-20 before:left-1 before:w-1 before:h-70% before:translate-y-20%',
     activebottom: 'active before:bottom-0 before:w-full before:h-0.75',
   },
 })
