@@ -1,12 +1,15 @@
+import { ReactNode } from 'react'
 import CMMainContainer from './CMMainContainer'
-import CMMainMenubar from './CMMainMenubar'
+import CMMainMenuBar from './CMMainMenubar'
 
-interface CMMainProps {}
+interface CMMainProps {
+  children?: ReactNode
+}
 
-const CMMain: React.FC<CMMainProps> = () => {
+const CMMain: React.FC<CMMainProps> = ({ children }) => {
   return (
     <div id={'view-container'} className={'w-full flex-1 flex'}>
-      <CMMainMenubar />
+      <CMMainMenuBar />
       <CMMainContainer />
     </div>
   )

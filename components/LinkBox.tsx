@@ -4,7 +4,7 @@ interface LinkBoxProps {
   children: ReactNode
   active?: {
     value: boolean
-    type: 'activeleft' | 'activebottom'
+    type: 'activeLeft' | 'activeBottom'
   }
 }
 

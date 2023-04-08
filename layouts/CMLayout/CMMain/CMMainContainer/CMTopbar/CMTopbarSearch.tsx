@@ -22,9 +22,10 @@ const CMTopbarSearch: React.FC<CMTopbarSearchProps> = () => {
         >
           <div id={'search-bar-left'}>
             <IconBox
-              icon={ICONS['menubar']['search']}
+              icon={ICONS['menuBar']['search']}
               iconSize={'xl'}
               clickable={false}
+              bgHighlight={false}
             />
           </div>
           <input
@@ -37,7 +38,7 @@ const CMTopbarSearch: React.FC<CMTopbarSearchProps> = () => {
           />
           <div id={'search-bar-right'}>
             <IconBox
-              icon={ICONS['menubar']['microphone']}
+              icon={ICONS['menuBar']['microphone']}
               iconSize={'xl'}
               iconShape={'rounded'}
               iconWidth={8}

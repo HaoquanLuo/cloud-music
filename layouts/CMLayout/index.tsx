@@ -1,9 +1,14 @@
+import { ReactNode, createContext } from 'react'
 import CMPlayer from './CMFooter/CMPlayer'
 import CMMain from './CMMain'
 
-interface CMLayoutProps {}
+interface CMLayoutProps {
+  children: ReactNode
+}
 
-const CMLayout: React.FC<CMLayoutProps> = () => {
+export const LayoutContext = createContext<ReactNode>(<></>)
+
+const CMLayout: React.FC<CMLayoutProps> = ({ children }) => {
   return (
     <div
       id={'view-box'}
@@ -11,7 +16,11 @@ const CMLayout: React.FC<CMLayoutProps> = () => {
         'flex flex-col bg-#101010 text-light w-full h-full rd-lg overflow-hidden'
       }
     >
-      <CMMain />
+      {
+        <LayoutContext.Provider value={children}>
+          <CMMain />
+        </LayoutContext.Provider>
+      }
       <CMPlayer />
     </div>
   )

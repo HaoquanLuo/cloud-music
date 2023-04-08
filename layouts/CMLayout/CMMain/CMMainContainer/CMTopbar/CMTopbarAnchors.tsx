@@ -11,7 +11,7 @@ const CMTopbarAnchors: React.FC<CMTopbarAnchorsProps> = () => {
           return (
             <IconBox
               key={item}
-              icon={ICONS['menubar'][item]}
+              icon={ICONS['menuBar'][item]}
               iconSize={'3xl'}
             />
           )

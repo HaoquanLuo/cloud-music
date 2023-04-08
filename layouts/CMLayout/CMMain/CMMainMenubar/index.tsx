@@ -1,17 +1,18 @@
+import { MENULINKS } from '@/common/constants/menuLinks'
 import CMMenuFollows from './CMMenuFollows'
 import CMMenuLinks from './CMMenuLinks'
 import CMMenuOptions from './CMMenuOptions'
 
-interface CMMainMenubarProps {}
+interface CMMainMenuBarProps {}
 
-const CMMainMenubar: React.FC<CMMainMenubarProps> = () => {
+const CMMainMenuBar: React.FC<CMMainMenuBarProps> = () => {
   return (
     <div id={'container-menu'} className={'w-16 h-full flex flex-col py-3 ja'}>
       <CMMenuOptions />
-      <CMMenuLinks />
+      <CMMenuLinks menuLinks={MENULINKS} />
       <CMMenuFollows />
     </div>
   )
 }
 
-export default CMMainMenubar
+export default CMMainMenuBar

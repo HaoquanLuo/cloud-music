@@ -1,29 +1,26 @@
-import { ICONS } from '@/common/constants/icons'
 import IconBox from '@/components/IconBox'
 import LinkBox from '@/components/LinkBox'
+import getIconByPath from '@/utils/getIconByPath'
 
-interface CMMenuLinksProps {}
+interface CMMenuLinksProps {
+  menuLinks: CM.MenuLink[]
+}
 
-const CMMenuLinks: React.FC<CMMenuLinksProps> = () => {
+const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
+  const { menuLinks } = props
   return (
     <div
       id={'container-menu-middle'}
-      className={
-        'text-[rgba(255,_255,_255,_0.7)] flex-1 flex flex-col gap-1 jc ic'
-      }
+      className={'text-fade flex-1 flex flex-col gap-1 jc ic'}
     >
-      {[
-        'home',
-        'recommend',
-        'broadcast',
-        'collection',
-        'cloud',
-        'download',
-      ].map((item, idx) => {
+      {menuLinks.map((item, idx) => {
         return (
-          <LinkBox key={item} active={{ value: idx === 0, type: 'activeleft' }}>
+          <LinkBox
+            key={item.menuTitle}
+            active={{ value: idx === 0, type: 'activeLeft' }}
+          >
             <IconBox
-              icon={ICONS['navlink'][item]}
+              icon={getIconByPath(item.menuIconPath)}
               iconSize={'2xl'}
               iconWidth={12}
               iconHeight={10}

@@ -9,13 +9,14 @@
     "build:build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:css": "unocss -c uno.config.ts -o styles/uno.css -w \"{pages,layouts,components}/**/*.tsx\"",
-    "build:css": "unocss -c uno.config.ts -o styles/uno.css \"{pages,layouts,components}/**/*.tsx\""
+    "dev:css": "unocss -c uno.config.ts -o styles/uno.css -w \"{pages,layouts,components,common}/**/*.{ts,tsx}\"",
+    "build:css": "unocss -c uno.config.ts -o styles/uno.css \"{pages,layouts,components,common}/**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
+    "axios": "^1.3.5",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",

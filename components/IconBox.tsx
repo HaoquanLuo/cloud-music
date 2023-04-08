@@ -1,6 +1,7 @@
 interface IconBoxProps {
   icon: CM.Icon | string
   clickable?: boolean
+  bgHighlight?: boolean
   iconShape?: 'rounded' | 'square'
   iconWidth?: number
   iconHeight?: number
@@ -11,6 +12,7 @@ const IconBox: React.FC<IconBoxProps> = (props) => {
   const {
     icon,
     clickable = true,
+    bgHighlight = true,
     iconShape = 'square',
     iconWidth = 10,
     iconHeight = 10,
@@ -21,10 +23,12 @@ const IconBox: React.FC<IconBoxProps> = (props) => {
       className={`grid pic ${
         iconShape === 'square' ? 'rd' : 'rd-36'
       } w-${String(iconWidth)} h-${String(iconHeight)} text-${iconSize} ${
-        clickable ? 'cursor-pointer hover:bg-light hover:bg-op-20' : ''
-      }`}
+        clickable ? 'cursor-pointer' : ''
+      } ${bgHighlight ? 'bgHighlight' : ''}`}
     >
-      <i className={`${typeof icon === 'string' ? icon : icon.content}`}></i>
+      <div
+        className={`${typeof icon === 'string' ? icon : icon.iconContent}`}
+      ></div>
     </div>
   )
 }

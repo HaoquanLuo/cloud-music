@@ -1,15 +1,12 @@
-import CMcontentBody from './CMContentBody'
-import CMContentNavlink from './CMContentNavlink'
+import { ReactNode } from 'react'
 
-interface CMContentProps {}
+interface CMContentProps {
+  children: ReactNode
+}
 
-const CMContent: React.FC<CMContentProps> = () => {
-  return (
-    <div id={'main-content'} className={'w-full flex-1 flex flex-col'}>
-      <CMContentNavlink />
-      <CMcontentBody />
-    </div>
-  )
+const CMContent: React.FC<CMContentProps> = (props) => {
+  const { children } = props
+  return <>{children}</>
 }
 
 export default CMContent

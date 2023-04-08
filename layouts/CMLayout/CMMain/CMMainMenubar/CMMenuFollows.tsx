@@ -23,7 +23,7 @@ const CMMenuFollows: React.FC<CMMenuFollowsProps> = () => {
         id={'menu-bottom-follow-add'}
         className={'text-[rgba(255,_255,_255,_0.7)]'}
       >
-        <IconBox icon={ICONS['navlink']['add']} />
+        <IconBox icon={ICONS['menuLink']['add']} />
       </div>
     </div>
   )

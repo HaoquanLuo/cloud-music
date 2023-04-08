@@ -1,28 +1,18 @@
 import { Inter } from 'next/font/google'
-import CMLayout from '@/layouts/CMLayout'
-import LinkBox from '@/components/LinkBox'
-import IconBox from '@/components/IconBox'
+
+import CMcontentBody from '@/layouts/CMLayout/CMMain/CMMainContainer/CMContent/CMContentBody'
+import CMContentNavLink from '@/layouts/CMLayout/CMMain/CMMainContainer/CMContent/CMContentNavlink'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const navLinks = ['个性推荐', '歌手', '歌单', '排行榜']
+
   return (
     <div id="home" className={inter.className}>
-      <div className={'fixed top-4 right-4'}>
-        <LinkBox>
-          <a href="https://github.com/ffxixslh/cloud-music">
-            <IconBox
-              icon={'i-ri-github-fill'}
-              iconShape={'rounded'}
-              iconSize={'3xl'}
-            />
-          </a>
-        </LinkBox>
-      </div>
-      <div className={'w-full h-full grid pic'}>
-        <div className={'w-80% h-85%'}>
-          <CMLayout />
-        </div>
+      <div id={'main-content'} className={'w-full flex-1 flex flex-col'}>
+        <CMContentNavLink navLinks={navLinks} />
+        <CMcontentBody />
       </div>
     </div>
   )

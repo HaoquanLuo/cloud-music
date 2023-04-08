@@ -1,10 +1,23 @@
-import { TIcons } from '../constants/icons'
+import { TIconSetTitle } from '../constants/icons'
 
 declare global {
   module CM {
     type Icon = {
-      title: string
-      content: string
+      iconTitle: string
+      iconContent: string
+    }
+
+    type MenuLink = {
+      menuTitle: string
+      menuIconPath: `${keyof TIconSetTitle}/${string}`
+    }
+
+    type MenuLinks = Record<string, MenuLink>
+
+    type Playlist = {
+      playlistCover: string
+      playlistTitle: string
+      playlistInfo: string
     }
   }
 }
