@@ -1,9 +1,10 @@
 import IconBox from '@/components/IconBox'
 import LinkBox from '@/components/LinkBox'
 import getIconByPath from '@/utils/getIconByPath'
+import Link from 'next/link'
 
 interface CMMenuLinksProps {
-  menuLinks: CM.MenuLink[]
+  menuLinks: CM.RouteLink[]
 }
 
 const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
@@ -15,17 +16,16 @@ const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
     >
       {menuLinks.map((item, idx) => {
         return (
-          <LinkBox
-            key={item.menuTitle}
-            active={{ value: idx === 0, type: 'activeLeft' }}
-          >
-            <IconBox
-              icon={getIconByPath(item.menuIconPath)}
-              iconSize={'2xl'}
-              iconWidth={12}
-              iconHeight={10}
-            />
-          </LinkBox>
+          <Link key={item.routeTitle} href={item.routePath}>
+            <LinkBox active={{ value: idx === 0, type: 'activeLeft' }}>
+              <IconBox
+                icon={getIconByPath(item.routeIconPath!)}
+                iconSize={'2xl'}
+                iconWidth={12}
+                iconHeight={10}
+              />
+            </LinkBox>
+          </Link>
         )
       })}
     </div>

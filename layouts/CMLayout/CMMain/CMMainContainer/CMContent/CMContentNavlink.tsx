@@ -1,7 +1,8 @@
 import LinkBox from '@/components/LinkBox'
+import Link from 'next/link'
 
 interface CMContentMenuLinkProps {
-  navLinks: string[]
+  navLinks: CM.RouteLink[]
 }
 
 const CMContentNavLink: React.FC<CMContentMenuLinkProps> = (props) => {
@@ -13,12 +14,11 @@ const CMContentNavLink: React.FC<CMContentMenuLinkProps> = (props) => {
     >
       {navLinks.map((item, idx) => {
         return (
-          <LinkBox
-            key={item}
-            active={{ value: idx === 0, type: 'activeBottom' }}
-          >
-            <a>{item}</a>
-          </LinkBox>
+          <Link key={item.routeTitle} href={item.routePath}>
+            <LinkBox active={{ value: idx === 0, type: 'activeBottom' }}>
+              {item.routeContent}
+            </LinkBox>
+          </Link>
         )
       })}
     </div>

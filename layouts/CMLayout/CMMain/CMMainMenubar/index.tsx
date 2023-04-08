@@ -1,4 +1,4 @@
-import { MENULINKS } from '@/common/constants/menuLinks'
+import { MENULINKS } from '@/common/constants/links/menuLinks'
 import CMMenuFollows from './CMMenuFollows'
 import CMMenuLinks from './CMMenuLinks'
 import CMMenuOptions from './CMMenuOptions'

@@ -6,7 +6,7 @@ const CardVerticalBox: React.FC<CardVerticalBoxProps> = (props) => {
   return (
     <div
       className={
-        'list-big bg-light bg-op-10 w-30 h-44 p-1.75 flex flex-col gap-y-2 ic rd bgHighlight'
+        'list-big bg-light bg-op-10 w-30 h-44 p-1.75 flex flex-col gap-y-1.5 ic rd bgHighlight'
       }
     >
       <div className={'list-cover w-25 h-25 '}>

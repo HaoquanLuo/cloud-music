@@ -16,9 +16,7 @@ const CMTopbarSearch: React.FC<CMTopbarSearchProps> = () => {
       <div id={'topbar-search'} className={'flex-1 flex ic'}>
         <div
           id={'search-bar'}
-          className={
-            'w-full  h-80% px-2 text-xl bg-light bg-op-10 rd-2 flex ic gap-2'
-          }
+          className={'full px-2 text-xl bg-light bg-op-10 rd-2 flex ic gap-2'}
         >
           <div id={'search-bar-left'}>
             <IconBox

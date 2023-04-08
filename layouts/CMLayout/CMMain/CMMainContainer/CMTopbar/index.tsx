@@ -7,7 +7,7 @@ interface CMTopbarProps {}
 
 const CMTopbar: React.FC<CMTopbarProps> = () => {
   return (
-    <div id={'main-topbar'} className={'w-full h-14 flex ic pt-2 mb-2 px-4'}>
+    <div id={'main-topbar'} className={'w-full h-12! flex ic pt-3 mb-3 px-4'}>
       <CMTopbarAnchors />
       <CMTopbarSearch />
       <div id="top-bar-right">

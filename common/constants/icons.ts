@@ -44,8 +44,8 @@ export const ICONS: Record<TIconSetTitle, Record<string, CM.Icon>> = {
       iconTitle: 'home',
       iconContent: 'i-ri-home-8-line',
     },
-    recommend: {
-      iconTitle: 'recommend',
+    radio: {
+      iconTitle: 'radio',
       iconContent: 'i-ri-star-smile-line',
     },
     broadcast: {

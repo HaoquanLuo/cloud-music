@@ -22,7 +22,7 @@ const CMPlayerRegulators: React.FC<CMPlayerRegulatorsProps> = () => {
           max={100}
           step={2}
           id={'player-volume'}
-          className={'h-3 bg-red-600 appearance-none overflow-hidden rd-2'}
+          className={'h-3 bg-red-600 appearance-none overflow-hidden rd-3'}
         />
       </div>
     </div>

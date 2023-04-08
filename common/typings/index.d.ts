@@ -7,12 +7,12 @@ declare global {
       iconContent: string
     }
 
-    type MenuLink = {
-      menuTitle: string
-      menuIconPath: `${keyof TIconSetTitle}/${string}`
+    type RouteLink = {
+      routeTitle: string
+      routePath: string
+      routeContent?: string
+      routeIconPath?: string
     }
-
-    type MenuLinks = Record<string, MenuLink>
 
     type Playlist = {
       playlistCover: string
