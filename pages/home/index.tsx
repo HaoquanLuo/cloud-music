@@ -1,7 +1,18 @@
-interface HomeProps {}
+import CMcontentBody from '@/components/layouts/CMLayout/CMMain/CMMainContainer/CMContent/CMContentBody'
+import { CMPage } from '@/components/layouts/types'
 
-const Home: React.FC<HomeProps> = () => {
-  return <h1>Home</h1>
+interface HomeProps {
+  children?: React.ReactNode
 }
 
+const Home: CMPage = (props: HomeProps) => {
+  const { children } = props
+  return (
+    <div id={'main-content'} className={'full flex flex-col'}>
+      <CMcontentBody>{children}</CMcontentBody>
+    </div>
+  )
+}
 export default Home
+
+Home.Layout = 'Home'

@@ -66,7 +66,7 @@ export default defineConfig({
     active: 'before:content-empty before:absolute before:bg-red-600 before:rd',
     activeLeft:
       'active bg-light bg-op-20 before:left-1 before:w-1 before:h-70% before:translate-y-20%',
-    activeBottom: 'active before:bottom-0 before:w-full before:h-0.75',
+    activeBottom: 'active before:bottom--2 before:w-full before:h-0.75',
     bgHighlight: 'hover:bg-light hover:bg-op-20',
   },
   safelist: ['w-12', 'w-10', 'h-10', 'text-3xl'],

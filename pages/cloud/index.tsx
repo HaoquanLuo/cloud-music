@@ -1,7 +1,11 @@
+import { CMPage } from '@/components/layouts/types'
+
 interface CloudProps {}
 
-const Cloud: React.FC<CloudProps> = () => {
+const Cloud: CMPage = (props: CloudProps) => {
   return <h1>Cloud</h1>
 }
 
 export default Cloud
+
+Cloud.Layout = 'Main'

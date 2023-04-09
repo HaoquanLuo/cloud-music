@@ -1,7 +1,11 @@
+import { CMPage } from '@/components/layouts/types'
+
 interface RankingProps {}
 
-const Ranking: React.FC<RankingProps> = () => {
+const Ranking: CMPage = (props: RankingProps) => {
   return <h1>ranking</h1>
 }
 
 export default Ranking
+
+Ranking.Layout = 'Home'

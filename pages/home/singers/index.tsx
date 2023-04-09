@@ -1,7 +1,11 @@
+import { CMPage } from '@/components/layouts/types'
+
 interface SingersProps {}
 
-const Singers: React.FC<SingersProps> = () => {
+const Singers: CMPage = (props: SingersProps) => {
   return <h1>singers</h1>
 }
 
 export default Singers
+
+Singers.Layout = 'Home'
