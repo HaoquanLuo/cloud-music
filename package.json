@@ -9,8 +9,8 @@
     "build:build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:css": "unocss -c uno.config.ts -o styles/uno.css -w \"{pages,layouts,components,common}/**/*.{ts,tsx}\"",
-    "build:css": "unocss -c uno.config.ts -o styles/uno.css \"{pages,layouts,components,common}/**/*.{ts,tsx}\""
+    "dev:css": "unocss -c uno.config.ts -o styles/uno.css -w \"{pages,components,common}/**/*.{ts,tsx}\"",
+    "build:css": "unocss -c uno.config.ts -o styles/uno.css \"{pages,components,common}/**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@types/node": "18.15.11",
