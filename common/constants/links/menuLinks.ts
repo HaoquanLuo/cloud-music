@@ -26,7 +26,7 @@ export const MENULINKS: CM.RouteLink[] = [
   },
   {
     routeTitle: 'download',
-    routePath: 'download',
+    routePath: '/download',
     routeIconPath: 'menuLink/download',
   },
 ]
