@@ -1,5 +1,5 @@
 import { ICONS } from '@/common/constants/icons'
-import IconBox from '@/components/IconBox'
+import IconBox from '@/components/common/IconBox'
 import { ChangeEvent, useState } from 'react'
 
 interface CMTopbarSearchProps {}

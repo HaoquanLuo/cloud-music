@@ -1,7 +1,8 @@
-import IconBox from '@/components/IconBox'
-import LinkBox from '@/components/LinkBox'
-import getIconByPath from '@/utils/getIconByPath'
 import Link from 'next/link'
+
+import IconBox from '@/components/common/IconBox'
+import LinkBox from '@/components/common/LinkBox'
+import getIconByPath from '@/utils/getIconByPath'
 
 interface CMMenuLinksProps {
   menuLinks: CM.RouteLink[]

@@ -1,4 +1,4 @@
-import LinkBox from '@/components/LinkBox'
+import LinkBox from '@/components/common/LinkBox'
 import Link from 'next/link'
 
 interface CMContentMenuLinkProps {

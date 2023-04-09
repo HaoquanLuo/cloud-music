@@ -1,7 +1,6 @@
-import IconBox from '@/components/IconBox'
-import CMPlayerRegulators from './CMPlayer/CMPlayerRegulators'
-import CMPlayerSongInfo from './CMPlayer/CMPlayerSongInfo'
-import CMPlayerOperations from './CMPlayer/CMPlayerOperations'
+import CMPlayerRegulators from './CMPlayerRegulators'
+import CMPlayerSongInfo from './CMPlayerSongInfo'
+import CMPlayerOperations from './CMPlayerOperations'
 
 interface CMPlayerProps {}
 

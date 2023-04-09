@@ -1,4 +1,4 @@
-import IconBox from '@/components/IconBox'
+import IconBox from '@/components/common/IconBox'
 import CMTopbarAnchors from './CMTopbarAnchors'
 import CMTopbarSearch from './CMTopbarSearch'
 import { ICONS } from '@/common/constants/icons'

@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import CardVerticalBox from './CardVerticalBox'
 
 interface BoardBoxProps {
   title: string
