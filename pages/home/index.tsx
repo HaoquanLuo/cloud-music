@@ -9,7 +9,7 @@ const Home: CMPage = (props: HomeProps) => {
   const { children } = props
   return (
     <div id={'main-content'} className={'full flex flex-col'}>
-      <CMcontentBody>{children}</CMcontentBody>
+      {children}
     </div>
   )
 }

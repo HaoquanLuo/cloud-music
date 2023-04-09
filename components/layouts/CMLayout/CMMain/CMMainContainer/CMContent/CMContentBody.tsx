@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 
-interface CMcontentBodyProps {
+interface CMContentBodyProps {
   children: ReactNode
 }
 
-const CMcontentBody: React.FC<CMcontentBodyProps> = (props) => {
+const CMcontentBody: React.FC<CMContentBodyProps> = (props) => {
   const { children } = props
   return (
     <div id={'content-body'} className={'w-full h-full flex-1 flex jc px-20'}>

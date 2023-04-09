@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Layout =
-    layouts[Component.Layout] ?? ((page: React.ReactElement) => page)
+    layouts[Component.Layout] ?? ((page: React.ReactElement) => <>{page}</>)
 
   return (
     <Layout>
