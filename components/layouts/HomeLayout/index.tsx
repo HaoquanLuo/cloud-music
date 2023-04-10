@@ -4,10 +4,9 @@ import CMContentNavLink from '../CMLayout/CMMain/CMMainContainer/CMContent/CMCon
 import CMMainLayout from '../CMLayout'
 
 const CMHomeLayout = (page: React.ReactElement) => {
-  const navLinks = HOMELINKS
   return CMMainLayout(
     <>
-      <CMContentNavLink navLinks={navLinks} />
+      <CMContentNavLink navLinks={HOMELINKS} />
       <CMContentBody>{page}</CMContentBody>
     </>
   )
