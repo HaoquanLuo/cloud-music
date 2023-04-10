@@ -1,3 +1,4 @@
+import { layouts } from '@/components/layouts'
 import { CMPage } from '@/components/layouts/types'
 
 interface RadioProps {}
@@ -8,4 +9,4 @@ const Radio: CMPage = (props: RadioProps) => {
 
 export default Radio
 
-Radio.Layout = 'Main'
+Radio.Layout = layouts['Main']

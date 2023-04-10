@@ -1,3 +1,4 @@
+import { layouts } from '@/components/layouts'
 import { CMPage } from '@/components/layouts/types'
 
 interface CloudProps {}
@@ -8,4 +9,4 @@ const Cloud: CMPage = (props: CloudProps) => {
 
 export default Cloud
 
-Cloud.Layout = 'Main'
+Cloud.Layout = layouts['Main']

@@ -1,3 +1,4 @@
+import { layouts } from '@/components/layouts'
 import { CMPage } from '@/components/layouts/types'
 
 interface BroadcastProps {}
@@ -8,4 +9,4 @@ const Broadcast: CMPage = (props: BroadcastProps) => {
 
 export default Broadcast
 
-Broadcast.Layout = 'Main'
+Broadcast.Layout = layouts['Main']

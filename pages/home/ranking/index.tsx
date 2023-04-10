@@ -1,3 +1,4 @@
+import { layouts } from '@/components/layouts'
 import { CMPage } from '@/components/layouts/types'
 
 interface RankingProps {}
@@ -8,4 +9,4 @@ const Ranking: CMPage = (props: RankingProps) => {
 
 export default Ranking
 
-Ranking.Layout = 'Home'
+Ranking.Layout = layouts['Home']

@@ -1,6 +1,7 @@
 import BoardBox from '@/components/common/BoardBox'
 import CardVerticalBox from '@/components/common/CardVerticalBox'
 import LinkBox from '@/components/common/LinkBox'
+import { layouts } from '@/components/layouts'
 import { CMPage } from '@/components/layouts/types'
 
 interface RecommendProps {}
@@ -25,4 +26,4 @@ const Recommend: CMPage = (props: RecommendProps) => {
 
 export default Recommend
 
-Recommend.Layout = 'Home'
+Recommend.Layout = layouts['Home']

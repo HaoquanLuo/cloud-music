@@ -1,12 +1,12 @@
 import { ReactNode } from 'react'
 
 interface CMContentProps {
-  children: ReactNode
+  children?: ReactNode
 }
 
 const CMContent: React.FC<CMContentProps> = (props) => {
   const { children } = props
-  return <>{children}</>
+  return <div className={'full'}>{children}</div>
 }
 
 export default CMContent

@@ -1,3 +1,4 @@
+import { layouts } from '@/components/layouts'
 import { CMPage } from '@/components/layouts/types'
 
 interface CollectionProps {}
@@ -8,4 +9,4 @@ const Collection: CMPage = (props: CollectionProps) => {
 
 export default Collection
 
-Collection.Layout = 'Main'
+Collection.Layout = layouts['Main']

@@ -15,7 +15,7 @@ const HomeLayout = (props: HomeLayoutProps) => {
   return (
     <CMLayout>
       <CMContentNavLink navLinks={navLinks} />
-      <CMcontentBody>{children}</CMcontentBody>
+      <>{children}</>
     </CMLayout>
   )
 }

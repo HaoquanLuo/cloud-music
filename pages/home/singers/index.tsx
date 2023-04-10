@@ -1,3 +1,4 @@
+import { layouts } from '@/components/layouts'
 import { CMPage } from '@/components/layouts/types'
 
 interface SingersProps {}
@@ -8,4 +9,4 @@ const Singers: CMPage = (props: SingersProps) => {
 
 export default Singers
 
-Singers.Layout = 'Home'
+Singers.Layout = layouts['Home']

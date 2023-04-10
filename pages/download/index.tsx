@@ -1,3 +1,4 @@
+import { layouts } from '@/components/layouts'
 import { CMPage } from '@/components/layouts/types'
 
 interface DownloadProps {}
@@ -8,4 +9,4 @@ const Download: CMPage = (props: DownloadProps) => {
 
 export default Download
 
-Download.Layout = 'Main'
+Download.Layout = layouts['Main']

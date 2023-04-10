@@ -11,23 +11,22 @@ import '@/styles/uno.css'
 import '@/styles/custom.css'
 import '@/styles/globals.css'
 
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  Layout?: (page: React.ReactElement) => React.ReactNode
+}
+
 type AppPropsWithLayout = AppProps & {
-  Component: NextComponentType<NextPageContext, any, any> & {
-    Layout: LayoutKeys
-  }
+  Component: NextPageWithLayout
 }
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const Layout =
-    layouts[Component.Layout] ?? ((page: React.ReactElement) => <>{page}</>)
+  const Layout = Component.Layout ?? ((page: React.ReactElement) => <>{page}</>)
 
-  return (
-    <Layout>
-      <div className={inter.className}>
-        <Component {...pageProps} />
-      </div>
-    </Layout>
+  return Layout(
+    <div className={inter.className}>
+      <Component {...pageProps} />
+    </div>
   )
 }
