@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 interface CMContentBodyProps {
-  children: ReactNode
+  children?: ReactNode
 }
 
 const CMcontentBody: React.FC<CMContentBodyProps> = (props) => {

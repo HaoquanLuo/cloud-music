@@ -1,6 +1,5 @@
 import CMLayout from './CMLayout'
 import HomeLayout from './HomeLayout'
-import React from 'react'
 
 export const layouts = {
   Main: CMLayout,

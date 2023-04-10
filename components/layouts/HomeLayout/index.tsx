@@ -1,4 +1,4 @@
-import { Children, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 import { HOMELINKS } from '@/common/constants/links/homeLinks'
 import CMcontentBody from '../CMLayout/CMMain/CMMainContainer/CMContent/CMContentBody'

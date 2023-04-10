@@ -1,12 +1,13 @@
 import { ReactNode } from 'react'
+import Link from 'next/link'
+import { Inter } from 'next/font/google'
 import CMPlayer from './CMFooter/CMPlayer'
 import CMMain from './CMMain'
-import { Inter } from 'next/font/google'
 import IconBox from '@/components/common/IconBox'
 import LinkBox from '@/components/common/LinkBox'
 import CMMainContainer from './CMMain/CMMainContainer'
 import CMContent from './CMMain/CMMainContainer/CMContent'
-import Link from 'next/link'
+import CMcontentBody from './CMMain/CMMainContainer/CMContent/CMContentBody'
 
 interface CMLayoutProps {
   children?: ReactNode
@@ -28,7 +29,9 @@ function CMLayout(props: CMLayoutProps) {
           >
             <CMMain>
               <CMMainContainer>
-                <CMContent>{children}</CMContent>
+                <CMContent>
+                  <CMcontentBody>{children}</CMcontentBody>
+                </CMContent>
               </CMMainContainer>
             </CMMain>
             <CMPlayer />
