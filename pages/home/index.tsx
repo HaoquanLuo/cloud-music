@@ -9,7 +9,10 @@ interface HomeProps {
 
 const Home: CMPage = (props: HomeProps) => {
   const router = useRouter()
-  router.replace('/home/recommend')
+  React.useEffect(() => {
+    router.replace('/home/recommend')
+  }, [router])
+
   return <h1>home</h1>
 }
 export default Home
