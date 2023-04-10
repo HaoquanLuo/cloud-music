@@ -5,5 +5,5 @@ export type LayoutKeys = keyof typeof layouts
 export type Layouts = typeof layouts
 
 export type CMPage<P = {}, IP = P> = NextPage<P, IP> & {
-  Layout?: Layouts[LayoutKeys]
+  Layout?: (page: React.ReactElement) => React.ReactNode
 }

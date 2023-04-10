@@ -4,7 +4,7 @@ interface CMContentBodyProps {
   children?: ReactNode
 }
 
-const CMcontentBody: React.FC<CMContentBodyProps> = (props) => {
+const CMContentBody: React.FC<CMContentBodyProps> = (props) => {
   const { children } = props
   return (
     <div id={'content-body'} className={'w-full h-full flex-1 flex jc px-20'}>
@@ -15,4 +15,4 @@ const CMcontentBody: React.FC<CMContentBodyProps> = (props) => {
   )
 }
 
-export default CMcontentBody
+export default CMContentBody

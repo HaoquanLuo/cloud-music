@@ -1,23 +1,16 @@
-import { ReactNode } from 'react'
-
 import { HOMELINKS } from '@/common/constants/links/homeLinks'
-import CMcontentBody from '../CMLayout/CMMain/CMMainContainer/CMContent/CMContentBody'
+import CMContentBody from '../CMLayout/CMMain/CMMainContainer/CMContent/CMContentBody'
 import CMContentNavLink from '../CMLayout/CMMain/CMMainContainer/CMContent/CMContentNavlink'
-import CMLayout from '../CMLayout'
+import CMMainLayout from '../CMLayout'
 
-interface HomeLayoutProps {
-  children?: ReactNode
-}
-
-const HomeLayout = (props: HomeLayoutProps) => {
-  const { children } = props
+const CMHomeLayout = (page: React.ReactElement) => {
   const navLinks = HOMELINKS
-  return (
-    <CMLayout>
+  return CMMainLayout(
+    <>
       <CMContentNavLink navLinks={navLinks} />
-      <>{children}</>
-    </CMLayout>
+      <CMContentBody>{page}</CMContentBody>
+    </>
   )
 }
 
-export default HomeLayout
+export default CMHomeLayout

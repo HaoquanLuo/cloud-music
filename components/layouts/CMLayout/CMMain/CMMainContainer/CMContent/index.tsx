@@ -6,7 +6,11 @@ interface CMContentProps {
 
 const CMContent: React.FC<CMContentProps> = (props) => {
   const { children } = props
-  return <div className={'full'}>{children}</div>
+  return (
+    <div id={'main-content'} className={'full flex flex-col'}>
+      {children}
+    </div>
+  )
 }
 
 export default CMContent

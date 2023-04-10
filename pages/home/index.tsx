@@ -8,12 +8,8 @@ interface HomeProps {
 
 const Home: CMPage = (props: HomeProps) => {
   const { children } = props
-  return (
-    <div id={'main-content'} className={'full flex flex-col'}>
-      {children}
-    </div>
-  )
+  return <>{children}</>
 }
 export default Home
 
-Home.Layout = layouts['Main']
+Home.Layout = layouts['Home']

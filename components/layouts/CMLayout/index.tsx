@@ -1,22 +1,16 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
-import CMPlayer from './CMFooter/CMPlayer'
+import CMPlayer from '../../CMPlayer'
 import CMMain from './CMMain'
 import IconBox from '@/components/common/IconBox'
 import LinkBox from '@/components/common/LinkBox'
 import CMMainContainer from './CMMain/CMMainContainer'
 import CMContent from './CMMain/CMMainContainer/CMContent'
-import CMcontentBody from './CMMain/CMMainContainer/CMContent/CMContentBody'
-
-interface CMLayoutProps {
-  children?: ReactNode
-}
 
 const inter = Inter({ subsets: ['latin'] })
 
-function CMLayout(props: CMLayoutProps) {
-  const { children } = props
+function CMMainLayout(page: React.ReactElement) {
   return (
     <div id="home" className={inter.className}>
       <div className={'w-full h-full grid pic'}>
@@ -29,9 +23,7 @@ function CMLayout(props: CMLayoutProps) {
           >
             <CMMain>
               <CMMainContainer>
-                <CMContent>
-                  <CMcontentBody>{children}</CMcontentBody>
-                </CMContent>
+                <CMContent>{page}</CMContent>
               </CMMainContainer>
             </CMMain>
             <CMPlayer />
@@ -53,4 +45,4 @@ function CMLayout(props: CMLayoutProps) {
   )
 }
 
-export default CMLayout
+export default CMMainLayout

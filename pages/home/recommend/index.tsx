@@ -14,13 +14,15 @@ const Recommend: CMPage = (props: RecommendProps) => {
       'playlistInfo playlistInfo playlistInfo playlistInfo playlistInfo playlistInfo ',
   }
   return (
-    <BoardBox title={'boardTitle'}>
-      {Array.from({ length: 6 }).map((_, i) => (
-        <LinkBox key={i}>
-          <CardVerticalBox playlist={playlist} />
-        </LinkBox>
-      ))}{' '}
-    </BoardBox>
+    <div id="recommend">
+      <BoardBox title={'boardTitle'}>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <LinkBox key={i}>
+            <CardVerticalBox playlist={playlist} />
+          </LinkBox>
+        ))}
+      </BoardBox>
+    </div>
   )
 }
 
