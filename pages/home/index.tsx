@@ -13,7 +13,7 @@ const Home: CMPage = (props: HomeProps) => {
     router.replace('/home/recommend')
   }, [router])
 
-  return <h1>home</h1>
+  return <></>
 }
 export default Home
 
