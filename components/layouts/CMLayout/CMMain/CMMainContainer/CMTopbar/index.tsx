@@ -1,23 +1,27 @@
-import IconBox from '@/components/common/IconBox'
-import CMTopbarAnchors from './CMTopbarAnchors'
-import CMTopbarSearch from './CMTopbarSearch'
-import { ICONS } from '@/common/constants/icons'
+import React from 'react'
 
-interface CMTopbarProps {}
+interface CMTopbarProps {
+  TopbarAnchors: React.ReactNode
+  TopbarSearch: React.ReactNode
+  TopbarUser: React.ReactNode
+  TopbarOptions: React.ReactNode
+}
 
-const CMTopbar: React.FC<CMTopbarProps> = () => {
+const CMTopbar: React.FC<CMTopbarProps> = (props) => {
+  const { TopbarAnchors, TopbarOptions, TopbarSearch, TopbarUser } = props
   return (
-    <div id={'main-topbar'} className={'w-full h-12! flex ic pt-3 mb-3 px-4'}>
-      <CMTopbarAnchors />
-      <CMTopbarSearch />
-      <div id="top-bar-right">
-        <div id={'topbar-options'} className={'px-2 flex gap-1'}>
-          {['settings', 'minimize', 'maximize', 'close'].map((item, idx) => {
-            return <IconBox key={item} icon={ICONS['menuBar'][item]} />
-          })}
+    <>
+      <div id="topbar-left">{TopbarAnchors}</div>
+      <div id="topbar-middle" className={'px-16 full flex gap-6'}>
+        <div id={'topbar-search'} className={'flex-1 flex ic'}>
+          {TopbarSearch}
+        </div>
+        <div id={'topbar-user'} className={'flex ic'}>
+          {TopbarUser}
         </div>
       </div>
-    </div>
+      <div id="topbar-right">{TopbarOptions}</div>
+    </>
   )
 }
 

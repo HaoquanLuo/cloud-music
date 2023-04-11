@@ -1,19 +1,23 @@
-import { ReactNode, useContext } from 'react'
-import CMTopbar from './CMTopbar'
+import React, { ReactNode } from 'react'
 
 interface CMMainContainerProps {
-  children?: ReactNode
+  Topbar: ReactNode
+  Content: ReactNode
 }
 
 const CMMainContainer: React.FC<CMMainContainerProps> = (
   props: CMMainContainerProps
 ) => {
-  const { children } = props
+  const { Topbar, Content } = props
   return (
-    <div id={'container-main'} className={'flex-1 flex flex-col h-full '}>
-      <CMTopbar />
-      <>{children}</>
-    </div>
+    <>
+      <div id={'main-topbar'} className={'w-full h-12! flex ic pt-3 mb-3 px-4'}>
+        {Topbar}
+      </div>
+      <div id={'main-content'} className={'full flex flex-col px-20'}>
+        {Content}
+      </div>
+    </>
   )
 }
 

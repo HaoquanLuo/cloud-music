@@ -5,10 +5,7 @@ interface CMMenuFollowsProps {}
 
 const CMMenuFollows: React.FC<CMMenuFollowsProps> = () => {
   return (
-    <div
-      id={'container-menu-bottom'}
-      className={'flex-1 pt-4 flex flex-col ic gap-3 text-2xl'}
-    >
+    <>
       <div
         id={'menu-bottom-follow-avatar'}
         className={'flex flex-col ic gap-3'}
@@ -25,7 +22,7 @@ const CMMenuFollows: React.FC<CMMenuFollowsProps> = () => {
       >
         <IconBox icon={ICONS['menuLink']['add']} />
       </div>
-    </div>
+    </>
   )
 }
 

@@ -1,17 +1,33 @@
-import { MENULINKS } from '@/common/constants/links/menuLinks'
-import CMMenuFollows from './CMMenuFollows'
-import CMMenuLinks from './CMMenuLinks'
-import CMMenuOptions from './CMMenuOptions'
+import React from 'react'
 
-interface CMMainMenuBarProps {}
+interface CMMainMenuBarProps {
+  MenuOptions: React.ReactNode
+  MenuLinks: React.ReactNode
+  MenuFollows: React.ReactNode
+}
 
-const CMMainMenuBar: React.FC<CMMainMenuBarProps> = () => {
+const CMMainMenuBar: React.FC<CMMainMenuBarProps> = (
+  props: CMMainMenuBarProps
+) => {
+  const { MenuFollows, MenuLinks, MenuOptions } = props
   return (
-    <div id={'container-menu'} className={'w-16 h-full flex flex-col py-3 ja'}>
-      <CMMenuOptions />
-      <CMMenuLinks menuLinks={MENULINKS} />
-      <CMMenuFollows />
-    </div>
+    <>
+      <div id={'container-menu-top'} className={'grid pic pb-11'}>
+        {MenuOptions}
+      </div>
+      <div
+        id={'container-menu-middle'}
+        className={'text-fade flex-1 flex flex-col gap-1 jc ic'}
+      >
+        {MenuLinks}
+      </div>
+      <div
+        id={'container-menu-bottom'}
+        className={'flex-1 pt-4 flex flex-col ic gap-3 text-2xl'}
+      >
+        {MenuFollows}
+      </div>
+    </>
   )
 }
 

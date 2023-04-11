@@ -7,7 +7,7 @@ interface CMContentBodyProps {
 const CMContentBody: React.FC<CMContentBodyProps> = (props) => {
   const { children } = props
   return (
-    <div id={'content-body'} className={'w-full h-full flex-1 flex jc px-20'}>
+    <div id={'content-body'} className={'w-full h-full flex-1 flex jc'}>
       <div id={'body-board-container'} className={'w-full h-full'}>
         {children}
       </div>

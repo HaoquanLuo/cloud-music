@@ -11,10 +11,7 @@ interface CMMenuLinksProps {
 const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
   const { menuLinks } = props
   return (
-    <div
-      id={'container-menu-middle'}
-      className={'text-fade flex-1 flex flex-col gap-1 jc ic'}
-    >
+    <>
       {menuLinks.map((item, idx) => {
         return (
           <Link key={item.routeTitle} href={item.routePath}>
@@ -29,7 +26,7 @@ const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
           </Link>
         )
       })}
-    </div>
+    </>
   )
 }
 
