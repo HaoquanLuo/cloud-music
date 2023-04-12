@@ -1,20 +1,13 @@
-import React from 'react'
-import { layouts } from '@/components/layouts'
-import { CMPage } from '@/components/layouts/types'
-import { useRouter } from 'next/router'
+import { layouts } from "@/components/layouts";
+import { CMPage } from "@/components/layouts/types";
+import useRedirect from "@/hooks/useRedirect";
 
-interface HomeProps {
-  children?: React.ReactNode
-}
+interface HomeProps {}
 
 const Home: CMPage = (props: HomeProps) => {
-  const router = useRouter()
-  React.useEffect(() => {
-    router.replace('/home/recommend')
-  }, [router])
+  useRedirect("/home/recommend");
+  return <></>;
+};
+export default Home;
 
-  return <></>
-}
-export default Home
-
-Home.Layout = layouts['Home']
+Home.Layout = layouts["Home"];

@@ -1,25 +1,37 @@
-import { TIconSetTitle } from '../constants/icons'
+import { TIconSetTitle } from "../constants/icons";
 
 declare global {
   module CM {
-    type Icon = {
-      iconTitle: string
-      iconContent: string
-    }
+    type State = {
+      activeNavLink: {
+        menuNavLink: string;
+        homeNavLink: string;
+      };
+    };
+
+    type Action<T = keyof State["activeNavLink"]> = {
+      type: T;
+      payload: string;
+    };
 
     type RouteLink = {
-      routeTitle: string
-      routePath: string
-      routeContent?: string
-      routeIconPath?: string
-    }
+      routeTitle: string;
+      routePath: string;
+      routeContent?: string;
+      routeIconPath?: string;
+    };
+
+    type Icon = {
+      iconTitle: string;
+      iconContent: string;
+    };
 
     type Playlist = {
-      playlistCover: string
-      playlistTitle: string
-      playlistInfo: string
-    }
+      playlistCover: string;
+      playlistTitle: string;
+      playlistInfo: string;
+    };
   }
 }
 
-export default global
+export default global;
