@@ -1,19 +1,19 @@
-import React from 'react'
-import type { AppProps } from 'next/app'
+import React from "react";
+import type { AppProps } from "next/app";
 
-import { CMPage } from '@/components/layouts/types'
+import type { CMPage } from "@/components/layouts/types";
 
-import '@unocss/reset/tailwind.css'
-import '@/styles/uno.css'
-import '@/styles/custom.css'
-import '@/styles/globals.css'
+import "@unocss/reset/tailwind.css";
+import "@/styles/uno.css";
+import "@/styles/custom.css";
+import "@/styles/globals.css";
 
 type AppPropsWithLayout = AppProps & {
-  Component: CMPage
-}
+  Component: CMPage;
+};
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const Layout = Component.Layout ?? ((page: React.ReactElement) => page)
+  const Layout = Component.Layout ?? ((page: React.ReactElement) => page);
 
-  return Layout(<Component {...pageProps} />)
+  return Layout(<Component {...pageProps} />);
 }
