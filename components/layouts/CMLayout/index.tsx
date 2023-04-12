@@ -11,7 +11,7 @@ import LinkBox from "@/components/common/LinkBox";
 
 import CMMain from "./CMMain";
 import CMFooter from "./CMFooter";
-import CMPlayer from "../../CMPlayer";
+import CMPlayer from "./CMFooter/CMPlayer";
 import CMMainMenuBar from "./CMMain/CMMainMenubar";
 import CMMainContainer from "./CMMain/CMMainContainer";
 import CMContent from "./CMMain/CMMainContainer/CMContent";
@@ -23,9 +23,9 @@ import CMTopbarOptions from "./CMMain/CMMainContainer/CMTopbar/CMTopbarOptions";
 import CMMenuFollows from "./CMMain/CMMainMenubar/CMMenuFollows";
 import CMMenuLinks from "./CMMain/CMMainMenubar/CMMenuLinks";
 import CMMenuOptions from "./CMMain/CMMainMenubar/CMMenuOptions";
-import CMPlayerSongInfo from "@/components/CMPlayer/CMPlayerSongInfo";
-import CMPlayerOperations from "@/components/CMPlayer/CMPlayerOperations";
-import CMPlayerRegulators from "@/components/CMPlayer/CMPlayerRegulators";
+import CMPlayerSongInfo from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerSongInfo";
+import CMPlayerOperations from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerOperations";
+import CMPlayerRegulators from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerRegulators";
 
 const inter = Inter({ subsets: ["latin"] });
 
