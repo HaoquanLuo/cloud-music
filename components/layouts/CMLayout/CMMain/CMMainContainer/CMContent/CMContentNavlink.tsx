@@ -6,7 +6,7 @@ import {
   useCMStateDispatch,
 } from "@/components/layouts/CMLayout/context";
 
-import LinkBox from "@/components/common/LinkBox";
+import ClickBox from "@/components/common/ClickBox";
 import React from "react";
 
 interface CMContentMenuLinkProps {
@@ -43,15 +43,15 @@ const CMContentNavLink: React.FC<CMContentMenuLinkProps> = (props) => {
       {navLinks.map((item, idx) => {
         return (
           <Link href={item.routePath} key={item.routeTitle}>
-            <LinkBox
+            <ClickBox
               active={{
                 value: activeNavLink.homeNavLink === item.routeTitle,
                 type: "activeBottom",
               }}
-              clickFunction={handleSwitchHomeNavLink(item.routeTitle)}
+              clickFn={handleSwitchHomeNavLink(item.routeTitle)}
             >
               {item.routeContent}
-            </LinkBox>
+            </ClickBox>
           </Link>
         );
       })}

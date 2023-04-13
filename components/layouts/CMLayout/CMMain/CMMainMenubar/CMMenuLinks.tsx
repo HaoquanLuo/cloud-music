@@ -9,7 +9,7 @@ import {
 } from "@/components/layouts/CMLayout/context";
 
 import IconBox from "@/components/common/IconBox";
-import LinkBox from "@/components/common/LinkBox";
+import ClickBox from "@/components/common/ClickBox";
 import React from "react";
 
 interface CMMenuLinksProps {
@@ -49,12 +49,12 @@ const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
       {menuLinks.map((item, idx) => {
         return (
           <Link key={item.routeTitle} href={item.routePath}>
-            <LinkBox
+            <ClickBox
               active={{
                 value: getActiveMenuLink(item),
                 type: "activeLeft",
               }}
-              clickFunction={handleSwitchMenuNavLink(item.routeTitle)}
+              clickFn={handleSwitchMenuNavLink(item.routeTitle)}
             >
               <IconBox
                 icon={getIconByPath(item.routeIconPath!)}
@@ -62,7 +62,7 @@ const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
                 iconWidth={12}
                 iconHeight={10}
               />
-            </LinkBox>
+            </ClickBox>
           </Link>
         );
       })}

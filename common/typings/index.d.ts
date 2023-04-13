@@ -9,6 +9,20 @@ declare global {
       };
     };
 
+    type SongInfo = {
+      songId: string;
+      songTitle: string;
+      songCoverId: string;
+      singer: string;
+      duration: number;
+    };
+
+    type PlayerMode = "order" | "random" | "repeat" | "repeatOne";
+
+    type PlayerOperations = "skipBack" | "skipForward" | "play" | "pause";
+
+    type PlayerStatus = "playing" | "paused";
+
     type Action<T = keyof State["activeNavLink"]> = {
       type: T;
       payload: string;

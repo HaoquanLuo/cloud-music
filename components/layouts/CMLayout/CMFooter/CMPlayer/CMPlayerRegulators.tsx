@@ -1,30 +1,30 @@
-import { ICONS } from '@/common/constants/icons'
-import IconBox from '@/components/common/IconBox'
+import React from "react";
+import { ICONS } from "@/common/constants/icons";
+import IconBox from "@/components/common/IconBox";
+import ProgressBox from "@/components/common/ProgressBox";
 
-interface CMPlayerRegulatorsProps {}
+interface CMPlayerRegulatorsProps {
+  volume: string;
+  changeFn: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-const CMPlayerRegulators: React.FC<CMPlayerRegulatorsProps> = () => {
+const CMPlayerRegulators: React.FC<CMPlayerRegulatorsProps> = (props) => {
+  const { volume, changeFn } = props;
+
   return (
-    <div id={'player-regulator'} className={'full flex jc ic gap-2 text-2xl'}>
-      {['device', 'playlist', 'equalizer', 'volume'].map((item, idx) => {
+    <div id={"player-regulator"} className={"full flex jc ic gap-2 text-2xl"}>
+      {["device", "playlist", "equalizer", "volume"].map((item, idx) => {
         return (
           <IconBox
             key={item}
-            icon={ICONS['player'][item]}
-            iconShape={idx === 3 ? 'rounded' : 'square'}
+            icon={ICONS["player"][item]}
+            iconShape={idx === 3 ? "rounded" : "square"}
           />
-        )
+        );
       })}
-      <input
-        type={'range'}
-        min={0}
-        max={100}
-        step={2}
-        id={'player-volume'}
-        className={'h-3 bg-red-600 appearance-none overflow-hidden rd-3'}
-      />
+      <ProgressBox value={volume} changeFn={changeFn} />
     </div>
-  )
-}
+  );
+};
 
-export default CMPlayerRegulators
+export default CMPlayerRegulators;

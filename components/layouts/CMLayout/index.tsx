@@ -5,9 +5,9 @@ import { Inter } from "next/font/google";
 import { MENULINKS } from "@/common/constants/links/menuLinks";
 import { useCMStorage } from "@/hooks/useCMStorage";
 import { CMStateProvider } from "./context";
+import { getSong } from "@/utils/getSong";
 
 import IconBox from "@/components/common/IconBox";
-import LinkBox from "@/components/common/LinkBox";
 
 import CMMain from "./CMMain";
 import CMFooter from "./CMFooter";
@@ -26,11 +26,72 @@ import CMMenuOptions from "./CMMain/CMMainMenubar/CMMenuOptions";
 import CMPlayerSongInfo from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerSongInfo";
 import CMPlayerOperations from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerOperations";
 import CMPlayerRegulators from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerRegulators";
+import ClickBox from "@/components/common/ClickBox";
 
 const inter = Inter({ subsets: ["latin"] });
 
 function CMMainLayout(page: React.ReactElement) {
+  // hooks
+  const audioRef = React.useRef<HTMLAudioElement>(null);
+  const [songLoaded, setSongLoaded] = React.useState(false);
+  const [playerStatus, setPlayerStatus] =
+    React.useState<CM.PlayerStatus>("paused");
+  const [playerMode, setPlayerMode] = React.useState<CM.PlayerMode>("repeat");
+  const [volume, setVolume] = React.useState("60");
+  const [songInfo, setSongInfo] = React.useState<CM.SongInfo>({
+    songTitle: "Open Arms",
+    songId: "2004563446",
+    songCoverId: "109951168121859537",
+    singer: "SZA/Travis Scott",
+    duration: 239000,
+  });
+  const [currentTime, setCurrentTime] = React.useState(0);
+  // custom hooks
   const [CMState, setCMState] = useCMStorage();
+  // effects
+  React.useEffect(() => {
+    const loaded = handleLoadSong(songInfo.songId);
+    setSongLoaded(loaded);
+  }, [songInfo.songId]);
+  // other handle
+  // handlers
+  const handleLoadSong = (songId: string) => {
+    if (audioRef.current) {
+      audioRef.current.src = getSong(songId);
+      return true;
+    }
+    return false;
+  };
+  const handleSongLoaded = (e: React.ChangeEvent<HTMLAudioElement>) => {
+    if (audioRef.current?.src) {
+      console.log("Song is loaded");
+    }
+  };
+  const handleSongEnded = (e: React.ChangeEvent<HTMLAudioElement>) => {
+    setPlayerStatus("paused");
+  };
+  const handleTimeUpdate = (e: React.ChangeEvent<HTMLAudioElement>) => {
+    setCurrentTime(e.target.currentTime);
+  };
+  const handlePlayOrPause = (key: "play" | "pause") => {
+    if (key === "pause") {
+      audioRef.current?.pause();
+      setPlayerStatus("paused");
+    } else {
+      audioRef.current?.play();
+      setPlayerStatus("playing");
+    }
+  };
+  const handlePlayNext = () => {
+    console.log("handlePlayNext");
+  };
+  const handlePlayPrev = () => {
+    console.log("handlePlayPrev");
+  };
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setVolume(e.target.value);
+  };
+
   return (
     <div id="home" className={inter.className}>
       <div className={"w-full h-full grid pic"}>
@@ -69,9 +130,31 @@ function CMMainLayout(page: React.ReactElement) {
               />
               <CMFooter>
                 <CMPlayer
-                  PlayerSongInfo={<CMPlayerSongInfo />}
-                  PlayerOperations={<CMPlayerOperations />}
-                  PlayerRegulators={<CMPlayerRegulators />}
+                  ref={audioRef}
+                  songLoadedFn={handleSongLoaded}
+                  timeUpdateFn={handleTimeUpdate}
+                  songEndedFn={handleSongEnded}
+                  PlayerSongInfo={
+                    <CMPlayerSongInfo
+                      songInfo={songInfo}
+                      songCurrentTime={currentTime}
+                    />
+                  }
+                  PlayerOperations={
+                    <CMPlayerOperations
+                      playerMode={playerMode}
+                      playerStatus={playerStatus}
+                      playOrPause={handlePlayOrPause}
+                      playNext={handlePlayNext}
+                      playPrev={handlePlayPrev}
+                    />
+                  }
+                  PlayerRegulators={
+                    <CMPlayerRegulators
+                      volume={volume}
+                      changeFn={handleVolumeChange}
+                    />
+                  }
                 />
               </CMFooter>
             </CMStateProvider>
@@ -79,7 +162,7 @@ function CMMainLayout(page: React.ReactElement) {
         </div>
       </div>
       <div className={"fixed top-4 right-4"}>
-        <LinkBox>
+        <ClickBox>
           <Link href="https://github.com/ffxixslh/cloud-music">
             <IconBox
               icon={"i-ri-github-fill"}
@@ -87,7 +170,7 @@ function CMMainLayout(page: React.ReactElement) {
               iconSize={"3xl"}
             />
           </Link>
-        </LinkBox>
+        </ClickBox>
       </div>
     </div>
   );
