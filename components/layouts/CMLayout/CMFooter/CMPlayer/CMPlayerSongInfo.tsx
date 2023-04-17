@@ -1,11 +1,12 @@
+import React from "react";
 import Image from "next/image";
 
-import songCover2 from "@/assets/imgs/songCover2.jpg";
-
 import { ICONS } from "@/common/constants/icons";
-import IconBox from "@/components/common/IconBox";
-import { formatMS } from "@/utils/format";
+
+import { formatMS } from "@/utils/timeFormat";
 import { getPic } from "@/utils/getPic";
+
+import IconBox from "@/components/common/IconBox";
 
 interface CMPlayerSongInfoProps {
   songCurrentTime: number;
@@ -14,10 +15,12 @@ interface CMPlayerSongInfoProps {
 
 const CMPlayerSongInfo: React.FC<CMPlayerSongInfoProps> = (props) => {
   const { songCurrentTime, songInfo } = props;
+  const picUrl =
+    (songInfo.songTitle !== "unknown" && getPic(songInfo.songCoverId)) || "";
   return (
     <div id={"player-song"} className={"full flex gap-4 ic"}>
       <Image
-        src={getPic(songInfo.songCoverId)}
+        src={picUrl}
         alt={songInfo.songTitle}
         id="song-cover"
         width={64}
@@ -29,7 +32,7 @@ const CMPlayerSongInfo: React.FC<CMPlayerSongInfoProps> = (props) => {
           {songInfo.songTitle}
         </div>
         <div id={"song-info-singer"} className={"truncate"}>
-          {songInfo.singer}
+          {songInfo.songSinger}
         </div>
       </div>
       <div id={"song-detail"} className={"w-24 flex flex-col gap-1"}>
@@ -55,7 +58,7 @@ const CMPlayerSongInfo: React.FC<CMPlayerSongInfoProps> = (props) => {
           </div>
           <div>/</div>
           <div id={"song-duration"} className={"w-10 text-right"}>
-            {formatMS(songInfo.duration)}
+            {formatMS(songInfo.songDuration, false)}
           </div>
         </div>
       </div>
@@ -63,4 +66,4 @@ const CMPlayerSongInfo: React.FC<CMPlayerSongInfoProps> = (props) => {
   );
 };
 
-export default CMPlayerSongInfo;
+export default React.memo(CMPlayerSongInfo);

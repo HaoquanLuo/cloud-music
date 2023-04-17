@@ -1,26 +1,31 @@
 import React from "react";
 
 interface ProgressBoxProps {
-  value: string;
-  changeFn: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: number;
+  max: number;
+  progressClickFn: (
+    e: React.MouseEvent<HTMLProgressElement, MouseEvent>
+  ) => void;
+  progressDownFn: (
+    e: React.MouseEvent<HTMLProgressElement, MouseEvent>
+  ) => void;
+  progressUpFn: (e: React.MouseEvent<HTMLProgressElement, MouseEvent>) => void;
 }
 
 const ProgressBox: React.FC<ProgressBoxProps> = (props) => {
-  const { value, changeFn } = props;
+  const { value, max, progressClickFn, progressDownFn, progressUpFn } = props;
   return (
-    <>
-      <input
-        type={"range"}
+    <div className={"absolute top-0 left-0 right-0 w-full h-1 mx-a my-0 rd-1"}>
+      <progress
+        className={"v-top full cursor-pointer text-red-600"}
         value={value}
-        onChange={changeFn}
-        min={0}
-        max={100}
-        step={2}
-        id={"player-volume"}
-        className={"h-3 bg-red-600 appearance-none overflow-hidden rd-3"}
+        max={max}
+        onMouseDown={progressDownFn}
+        onMouseUp={progressUpFn}
+        onClick={progressClickFn}
       />
-    </>
+    </div>
   );
 };
 
-export default ProgressBox;
+export default React.memo(ProgressBox);

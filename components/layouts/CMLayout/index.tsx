@@ -1,14 +1,21 @@
+// packages
 import React from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
-
+// assets
 import { MENULINKS } from "@/common/constants/links/menuLinks";
+// utils
+// api
+import { fakeMusic } from "@/pages/api/fakeMusic";
+// hooks
 import { useCMStorage } from "@/hooks/useCMStorage";
+import { usePlayer } from "@/hooks/usePlayer";
+// context
 import { CMStateProvider } from "./context";
-import { getSong } from "@/utils/getSong";
-
+// presentational components
 import IconBox from "@/components/common/IconBox";
-
+import ClickBox from "@/components/common/ClickBox";
+// layouts
 import CMMain from "./CMMain";
 import CMFooter from "./CMFooter";
 import CMPlayer from "./CMFooter/CMPlayer";
@@ -26,71 +33,86 @@ import CMMenuOptions from "./CMMain/CMMainMenubar/CMMenuOptions";
 import CMPlayerSongInfo from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerSongInfo";
 import CMPlayerOperations from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerOperations";
 import CMPlayerRegulators from "@/components/layouts/CMLayout/CMFooter/CMPlayer/CMPlayerRegulators";
-import ClickBox from "@/components/common/ClickBox";
 
 const inter = Inter({ subsets: ["latin"] });
 
 function CMMainLayout(page: React.ReactElement) {
   // hooks
-  const audioRef = React.useRef<HTMLAudioElement>(null);
-  const [songLoaded, setSongLoaded] = React.useState(false);
   const [playerStatus, setPlayerStatus] =
     React.useState<CM.PlayerStatus>("paused");
   const [playerMode, setPlayerMode] = React.useState<CM.PlayerMode>("repeat");
   const [volume, setVolume] = React.useState("60");
   const [songInfo, setSongInfo] = React.useState<CM.SongInfo>({
-    songTitle: "Open Arms",
-    songId: "2004563446",
-    songCoverId: "109951168121859537",
-    singer: "SZA/Travis Scott",
-    duration: 239000,
+    songTitle: "unknown",
+    songId: "",
+    songCoverId: "",
+    songSinger: "unknown",
+    songDuration: 0,
   });
-  const [currentTime, setCurrentTime] = React.useState(0);
   // custom hooks
   const [CMState, setCMState] = useCMStorage();
+  const {
+    audioRef,
+    currentTime,
+    handleProgressClick,
+    handleProgressDown,
+    handleProgressUp,
+    handleTimeUpdate,
+  } = usePlayer(songInfo);
+  // other handle
+  const volumePercentage = Number(volume) / 100;
   // effects
   React.useEffect(() => {
-    const loaded = handleLoadSong(songInfo.songId);
-    setSongLoaded(loaded);
-  }, [songInfo.songId]);
-  // other handle
-  // handlers
-  const handleLoadSong = (songId: string) => {
+    (async () => {
+      const open_arms = await fakeMusic();
+      setSongInfo(open_arms);
+    })();
+  }, []);
+  React.useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.src = getSong(songId);
-      return true;
+      audioRef.current.volume = volumePercentage;
     }
-    return false;
-  };
-  const handleSongLoaded = (e: React.ChangeEvent<HTMLAudioElement>) => {
-    if (audioRef.current?.src) {
-      console.log("Song is loaded");
-    }
-  };
-  const handleSongEnded = (e: React.ChangeEvent<HTMLAudioElement>) => {
-    setPlayerStatus("paused");
-  };
-  const handleTimeUpdate = (e: React.ChangeEvent<HTMLAudioElement>) => {
-    setCurrentTime(e.target.currentTime);
-  };
-  const handlePlayOrPause = (key: "play" | "pause") => {
-    if (key === "pause") {
-      audioRef.current?.pause();
+  }, [audioRef, volumePercentage]);
+  // handlers
+  const handleSongLoaded = React.useCallback(
+    (e: React.ChangeEvent<HTMLAudioElement>) => {
+      setSongInfo({
+        ...songInfo,
+        songDuration: e.target.duration,
+      });
+    },
+    [songInfo]
+  );
+  const handleSongEnded = React.useCallback(
+    (e: React.ChangeEvent<HTMLAudioElement>) => {
       setPlayerStatus("paused");
-    } else {
-      audioRef.current?.play();
-      setPlayerStatus("playing");
-    }
-  };
-  const handlePlayNext = () => {
+    },
+    []
+  );
+  const handlePlayOrPause = React.useCallback(
+    (key: "play" | "pause") => {
+      if (key === "pause") {
+        audioRef.current?.pause();
+        setPlayerStatus("paused");
+      } else {
+        audioRef.current?.play();
+        setPlayerStatus("playing");
+      }
+    },
+    [audioRef]
+  );
+  const handlePlayNext = React.useCallback(() => {
     console.log("handlePlayNext");
-  };
-  const handlePlayPrev = () => {
+  }, []);
+  const handlePlayPrev = React.useCallback(() => {
     console.log("handlePlayPrev");
-  };
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setVolume(e.target.value);
-  };
+  }, []);
+  const handleVolumeChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setVolume(e.target.value);
+    },
+    []
+  );
 
   return (
     <div id="home" className={inter.className}>
@@ -131,9 +153,14 @@ function CMMainLayout(page: React.ReactElement) {
               <CMFooter>
                 <CMPlayer
                   ref={audioRef}
+                  songCurrentTime={currentTime}
+                  songDuration={songInfo.songDuration}
                   songLoadedFn={handleSongLoaded}
-                  timeUpdateFn={handleTimeUpdate}
+                  songTimeUpdateFn={handleTimeUpdate}
                   songEndedFn={handleSongEnded}
+                  progressClickFn={handleProgressClick}
+                  progressDownFn={handleProgressDown}
+                  progressUpFn={handleProgressUp}
                   PlayerSongInfo={
                     <CMPlayerSongInfo
                       songInfo={songInfo}
@@ -152,7 +179,7 @@ function CMMainLayout(page: React.ReactElement) {
                   PlayerRegulators={
                     <CMPlayerRegulators
                       volume={volume}
-                      changeFn={handleVolumeChange}
+                      changeVolumeFn={handleVolumeChange}
                     />
                   }
                 />
@@ -176,4 +203,4 @@ function CMMainLayout(page: React.ReactElement) {
   );
 }
 
-export default CMMainLayout;
+export default React.memo(CMMainLayout);

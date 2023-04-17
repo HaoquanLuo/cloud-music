@@ -1,16 +1,16 @@
+import React from "react";
 import Link from "next/link";
 
 import getIconByPath from "@/utils/getIconByPath";
+
+import IconBox from "@/components/common/IconBox";
+import ClickBox from "@/components/common/ClickBox";
 
 import {
   CMStateDispatchContextProps,
   useCMState,
   useCMStateDispatch,
 } from "@/components/layouts/CMLayout/context";
-
-import IconBox from "@/components/common/IconBox";
-import ClickBox from "@/components/common/ClickBox";
-import React from "react";
 
 interface CMMenuLinksProps {
   menuLinks: CM.RouteLink[];
@@ -19,20 +19,20 @@ interface CMMenuLinksProps {
 const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
   const { menuLinks } = props;
   const CMState = useCMState() as CM.State;
-  const { activeNavLink } = CMState;
+  const { navLinkActive } = CMState;
   const { dispatch, storageDispatch } =
     useCMStateDispatch() as CMStateDispatchContextProps;
   const handleSwitchMenuNavLink = React.useCallback(
     (to: string) => () => {
       dispatch({
-        type: "menuNavLink",
+        type: "navLinkMenu",
         payload: to,
       });
       storageDispatch({
         ...CMState,
-        activeNavLink: {
-          homeNavLink: "recommend",
-          menuNavLink: to,
+        navLinkActive: {
+          navLinkHome: "recommend",
+          navLinkMenu: to,
         },
       });
     },
@@ -40,13 +40,13 @@ const CMMenuLinks: React.FC<CMMenuLinksProps> = (props) => {
   );
   const getActiveMenuLink = React.useCallback(
     (item: CM.RouteLink) => {
-      return activeNavLink.menuNavLink === item.routeTitle;
+      return navLinkActive.navLinkMenu === item.routeTitle;
     },
-    [activeNavLink.menuNavLink]
+    [navLinkActive.navLinkMenu]
   );
   return (
     <>
-      {menuLinks.map((item, idx) => {
+      {menuLinks.map((item) => {
         return (
           <Link key={item.routeTitle} href={item.routePath}>
             <ClickBox

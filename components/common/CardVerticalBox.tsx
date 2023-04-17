@@ -1,3 +1,5 @@
+import React from "react";
+
 interface CardVerticalBoxProps {
   playlist: CM.Playlist;
 }
@@ -34,4 +36,4 @@ const CardVerticalBox: React.FC<CardVerticalBoxProps> = (props) => {
   );
 };
 
-export default CardVerticalBox;
+export default React.memo(CardVerticalBox);

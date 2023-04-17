@@ -23,4 +23,4 @@ const ClickBox: React.FC<clickBoxProps> = (props) => {
   );
 };
 
-export default ClickBox;
+export default React.memo(ClickBox);

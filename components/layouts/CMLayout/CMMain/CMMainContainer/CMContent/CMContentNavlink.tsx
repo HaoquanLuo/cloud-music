@@ -1,13 +1,13 @@
+import React from "react";
 import Link from "next/link";
+
+import ClickBox from "@/components/common/ClickBox";
 
 import {
   CMStateDispatchContextProps,
   useCMState,
   useCMStateDispatch,
 } from "@/components/layouts/CMLayout/context";
-
-import ClickBox from "@/components/common/ClickBox";
-import React from "react";
 
 interface CMContentMenuLinkProps {
   navLinks: CM.RouteLink[];
@@ -16,36 +16,36 @@ interface CMContentMenuLinkProps {
 const CMContentNavLink: React.FC<CMContentMenuLinkProps> = (props) => {
   const { navLinks } = props;
   const CMState = useCMState() as CM.State;
-  const { activeNavLink } = CMState;
+  const { navLinkActive } = CMState;
   const { dispatch, storageDispatch } =
     useCMStateDispatch() as CMStateDispatchContextProps;
   const handleSwitchHomeNavLink = React.useCallback(
     (to: string) => () => {
       dispatch({
-        type: "homeNavLink",
+        type: "navLinkHome",
         payload: to,
       });
       storageDispatch({
         ...CMState,
-        activeNavLink: {
-          ...activeNavLink,
-          homeNavLink: to,
+        navLinkActive: {
+          ...navLinkActive,
+          navLinkHome: to,
         },
       });
     },
-    [CMState, activeNavLink, dispatch, storageDispatch]
+    [CMState, navLinkActive, dispatch, storageDispatch]
   );
   return (
     <div
       id={"content-menuLink"}
       className={"w-full h-8 my-3 flex jc gap-6 text-base"}
     >
-      {navLinks.map((item, idx) => {
+      {navLinks.map((item) => {
         return (
           <Link href={item.routePath} key={item.routeTitle}>
             <ClickBox
               active={{
-                value: activeNavLink.homeNavLink === item.routeTitle,
+                value: navLinkActive.navLinkHome === item.routeTitle,
                 type: "activeBottom",
               }}
               clickFn={handleSwitchHomeNavLink(item.routeTitle)}

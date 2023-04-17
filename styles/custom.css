@@ -1,6 +1,6 @@
 /********** Range Input Styles **********/
 /*Range Reset*/
-input[type='range'] {
+input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
@@ -9,19 +9,19 @@ input[type='range'] {
 }
 
 /* Removes default focus */
-input[type='range']:focus {
+input[type="range"]:focus {
   outline: none;
 }
 
 /***** Chrome, Safari, Opera and Edge Chromium styles *****/
 /* slider track */
-input[type='range']::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   background-color: #605e5c;
   height: 0.75rem;
 }
 
 /* slider thumb */
-input[type='range']::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
 
@@ -33,20 +33,19 @@ input[type='range']::-webkit-slider-thumb {
   border-radius: 50%;
 }
 
-input[type='range']:focus::-webkit-slider-thumb {
+input[type="range"]:focus::-webkit-slider-thumb {
   border: 1px solid #fdfdfd;
-  outline: 1px solid #fdfdfd;
 }
 
 /******** Firefox styles ********/
 /* slider track */
-input[type='range']::-moz-range-track {
+input[type="range"]::-moz-range-track {
   background-color: #605e5c;
   height: 0.75rem;
 }
 
 /* slider thumb */
-input[type='range']::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   border: none; /*Removes extra border that FF applies*/
   border-radius: 50%; /*Removes default border-radius that FF applies*/
 
@@ -57,7 +56,29 @@ input[type='range']::-moz-range-thumb {
   box-shadow: -8.25rem 0 0 7.75rem #dc2626;
 }
 
-input[type='range']:focus::-moz-range-thumb {
+input[type="range"]:focus::-moz-range-thumb {
   border: 1px solid #fdfdfd;
-  outline: 1px solid #fdfdfd;
+}
+
+/********** progress Styles **********/
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+progress::-webkit-progress-bar {
+  background-color: #605e5c;
+  border-radius: 0.25rem;
+}
+
+progress::-webkit-progress-value {
+  background: #dc2626;
+  border-radius: 0.25rem;
+}
+
+/******** Firefox styles ********/
+progress::-moz-progress-bar {
+  background-color: #605e5c;
+  border-radius: 0.25rem;
+}
+
+progress::-moz-progress-value {
+  background: #dc2626;
+  border-radius: 0.25rem;
 }

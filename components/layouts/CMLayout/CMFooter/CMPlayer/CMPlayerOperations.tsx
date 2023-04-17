@@ -1,3 +1,4 @@
+import React from "react";
 import { ICONS } from "@/common/constants/icons";
 import ClickBox from "@/components/common/ClickBox";
 import IconBox from "@/components/common/IconBox";
@@ -65,4 +66,4 @@ const CMPlayerOperations: React.FC<CMPlayerOperationsProps> = (props) => {
   );
 };
 
-export default CMPlayerOperations;
+export default React.memo(CMPlayerOperations);

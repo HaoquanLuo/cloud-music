@@ -3,9 +3,9 @@ import { TIconSetTitle } from "../constants/icons";
 declare global {
   module CM {
     type State = {
-      activeNavLink: {
-        menuNavLink: string;
-        homeNavLink: string;
+      navLinkActive: {
+        navLinkMenu: string;
+        navLinkHome: string;
       };
     };
 
@@ -13,8 +13,8 @@ declare global {
       songId: string;
       songTitle: string;
       songCoverId: string;
-      singer: string;
-      duration: number;
+      songSinger: string;
+      songDuration: number;
     };
 
     type PlayerMode = "order" | "random" | "repeat" | "repeatOne";
@@ -23,7 +23,7 @@ declare global {
 
     type PlayerStatus = "playing" | "paused";
 
-    type Action<T = keyof State["activeNavLink"]> = {
+    type Action<T = keyof State["navLinkActive"]> = {
       type: T;
       payload: string;
     };

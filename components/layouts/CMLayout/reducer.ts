@@ -1,29 +1,29 @@
 export const CMInitialState: CM.State = {
-  activeNavLink: {
-    menuNavLink: "home",
-    homeNavLink: "recommend",
+  navLinkActive: {
+    navLinkMenu: "home",
+    navLinkHome: "recommend",
   },
 };
 
 export const CMStateReducer = (state: CM.State, action: CM.Action) => {
   const { type, payload } = action;
   switch (type) {
-    case "menuNavLink":
+    case "navLinkMenu":
       return {
         ...state,
-        activeNavLink: {
-          ...state["activeNavLink"],
-          homeNavLink: "recommend",
-          menuNavLink: payload,
+        navLinkActive: {
+          ...state["navLinkActive"],
+          navLinkHome: "recommend",
+          navLinkMenu: payload,
         },
       };
 
-    case "homeNavLink":
+    case "navLinkHome":
       return {
         ...state,
-        activeNavLink: {
-          ...state["activeNavLink"],
-          homeNavLink: payload,
+        navLinkActive: {
+          ...state["navLinkActive"],
+          navLinkHome: payload,
         },
       };
 

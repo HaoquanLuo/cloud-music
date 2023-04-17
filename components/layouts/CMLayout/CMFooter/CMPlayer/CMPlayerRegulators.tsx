@@ -1,18 +1,18 @@
 import React from "react";
 import { ICONS } from "@/common/constants/icons";
 import IconBox from "@/components/common/IconBox";
-import ProgressBox from "@/components/common/ProgressBox";
+import SliderBox from "@/components/common/SliderBox";
 
 interface CMPlayerRegulatorsProps {
   volume: string;
-  changeFn: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  changeVolumeFn: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CMPlayerRegulators: React.FC<CMPlayerRegulatorsProps> = (props) => {
-  const { volume, changeFn } = props;
+  const { volume, changeVolumeFn } = props;
 
   return (
-    <div id={"player-regulator"} className={"full flex jc ic gap-2 text-2xl"}>
+    <div id={"player-regulator"} className={"full flex jn ic gap-2 text-2xl"}>
       {["device", "playlist", "equalizer", "volume"].map((item, idx) => {
         return (
           <IconBox
@@ -22,9 +22,9 @@ const CMPlayerRegulators: React.FC<CMPlayerRegulatorsProps> = (props) => {
           />
         );
       })}
-      <ProgressBox value={volume} changeFn={changeFn} />
+      <SliderBox value={volume} changeFn={changeVolumeFn} />
     </div>
   );
 };
 
-export default CMPlayerRegulators;
+export default React.memo(CMPlayerRegulators);
