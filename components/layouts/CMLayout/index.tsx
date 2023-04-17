@@ -203,4 +203,4 @@ function CMMainLayout(page: React.ReactElement) {
   );
 }
 
-export default React.memo(CMMainLayout);
+export default CMMainLayout;
