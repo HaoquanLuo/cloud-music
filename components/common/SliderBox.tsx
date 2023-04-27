@@ -11,7 +11,7 @@ interface SliderBoxProps {
 const SliderBox: React.FC<SliderBoxProps> = (props) => {
   const { value, changeFn, step = 10, max = 100, min = 0 } = props;
   return (
-    <div className={"slider-box"}>
+    <div className={"slider-box flex ic"}>
       <input
         type={"range"}
         value={value}
