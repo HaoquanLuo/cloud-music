@@ -41,7 +41,7 @@ const CMPlayer = React.forwardRef<HTMLAudioElement, CMPlayerProps>(
     return (
       <div
         id={"player-container"}
-        className={"relative w-full h-full flex bg-#1f1f1f rd-2 px-6"}
+        className={"relative w-full h-full flex bg-#1f1f1f rd-2 px-6 ofh"}
       >
         <ProgressBox
           value={Math.floor(songCurrentTime)}
